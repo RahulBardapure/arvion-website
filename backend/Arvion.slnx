@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Arvion.Application/Arvion.Application.csproj" />
+    <Project Path="src/Arvion.Domain/Arvion.Domain.csproj" />
+    <Project Path="src/Arvion.Infrastructure/Arvion.Infrastructure.csproj" />
+    <Project Path="src/Arvion.WebAPI/Arvion.WebAPI.csproj" />
+  </Folder>
+</Solution>

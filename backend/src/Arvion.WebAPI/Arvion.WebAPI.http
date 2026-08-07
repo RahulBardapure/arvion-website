@@ -1,0 +1,6 @@
+@Arvion.WebAPI_HostAddress = http://localhost:5034
+
+GET {{Arvion.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
