@@ -35,6 +35,8 @@ public static class DependencyInjection
         services.AddScoped<ITestimonialService, TestimonialService>();
         services.AddScoped<IEmailService, SmtpEmailService>();
         services.AddScoped<ICaptchaService, CaptchaService>();
+        services.AddScoped<IAdminAuthService, AdminAuthService>();
+        services.Configure<AdminOptions>(configuration.GetSection(AdminOptions.SectionName));
 
         return services;
     }

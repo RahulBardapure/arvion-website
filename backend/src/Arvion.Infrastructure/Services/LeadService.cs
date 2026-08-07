@@ -108,6 +108,16 @@ public class LeadService : ILeadService
         return items.Select(Map).ToList();
     }
 
+    public async Task<bool> DeleteDemoRequestAsync(Guid id, CancellationToken ct = default)
+    {
+        var entity = await _db.DemoRequests.FirstOrDefaultAsync(x => x.Id == id, ct);
+        if (entity is null) return false;
+
+        _db.DemoRequests.Remove(entity);
+        await _db.SaveChangesAsync(ct);
+        return true;
+    }
+
     private static DemoRequestDto Map(DemoRequest e) => new()
     {
         Id = e.Id,

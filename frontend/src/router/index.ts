@@ -99,8 +99,34 @@ const router = createRouter({
         description: 'Book a free Digital School demo for your institute.',
       },
     },
+    {
+      path: '/admin',
+      name: 'admin-login',
+      component: () => import('@/views/AdminLoginView.vue'),
+      meta: {
+        title: 'Admin — Arvion',
+        hideChrome: true,
+      },
+    },
+    {
+      path: '/admin/leads',
+      name: 'admin-leads',
+      component: () => import('@/views/AdminLeadsView.vue'),
+      meta: {
+        title: 'Demo requests — Admin',
+        hideChrome: true,
+        requiresAdmin: true,
+      },
+    },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/views/NotFoundView.vue') },
   ],
+})
+
+router.beforeEach((to) => {
+  if (!to.meta.requiresAdmin) return true
+  const token = sessionStorage.getItem('arvion_admin_token')
+  if (!token) return { name: 'admin-login', query: { redirect: to.fullPath } }
+  return true
 })
 
 router.afterEach((to) => {

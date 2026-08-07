@@ -98,9 +98,17 @@ See `backend/src/Arvion.WebAPI/appsettings.Production.example.json` (no real sec
 | POST | `/api/v1/leads/contact` | Anonymous + rate limit |
 | GET | `/api/v1/testimonials` | Anonymous |
 | GET | `/api/v1/health` | Anonymous |
+| POST | `/api/v1/auth/login` | Anonymous (admin email/password → JWT) |
 | GET | `/api/v1/admin/leads` | JWT |
+| DELETE | `/api/v1/admin/leads/{id}` | JWT |
 
 Envelope: `{ "success": true, "data": {}, "message": "..." }`
+
+### Admin UI
+- Login: `/admin` (not linked in public nav)
+- Leads: `/admin/leads`
+- Azure App Settings: `Admin__Email`, `Admin__Password`, and a strong `Jwt__Key`
+
 
 ## Azure deploy outline
 

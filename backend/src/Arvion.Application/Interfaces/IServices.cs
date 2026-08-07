@@ -1,3 +1,4 @@
+using Arvion.Application.DTOs.Auth;
 using Arvion.Application.DTOs.Leads;
 using Arvion.Application.DTOs.Testimonials;
 
@@ -8,6 +9,12 @@ public interface ILeadService
     Task<DemoRequestDto> CreateDemoRequestAsync(CreateDemoRequestDto dto, CancellationToken ct = default);
     Task CreateContactMessageAsync(CreateContactMessageDto dto, CancellationToken ct = default);
     Task<IReadOnlyList<DemoRequestDto>> ListDemoRequestsAsync(CancellationToken ct = default);
+    Task<bool> DeleteDemoRequestAsync(Guid id, CancellationToken ct = default);
+}
+
+public interface IAdminAuthService
+{
+    Task<AdminLoginResponseDto?> LoginAsync(AdminLoginDto dto, CancellationToken ct = default);
 }
 
 public interface ITestimonialService
