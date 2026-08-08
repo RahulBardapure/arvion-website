@@ -38,14 +38,329 @@ export const proofStrip = [
   { src: `${DS_IMG}/proof-admissions.png`, caption: 'Admissions', href: '#admissions' },
   { src: `${DS_IMG}/proof-fee-ledger.png`, caption: 'Fee Ledger', href: '#fees' },
   { src: `${DS_IMG}/proof-payments.png`, caption: 'Online Payments', href: '#payments' },
-  { src: `${DS_IMG}/proof-reports.png`, caption: 'Reports', href: '#fees' },
-  { src: `${DS_IMG}/proof-whatsapp-analytics.png`, caption: 'WhatsApp Analytics', href: '#whatsapp' },
+  { src: `${DS_IMG}/fees/reports-collection.png`, caption: 'Reports', href: '#fees' },
+  { src: `${DS_IMG}/whatsapp/whatsapp-trends-phase1.png`, caption: 'WhatsApp Analytics', href: '#whatsapp' },
   { src: `${DS_IMG}/proof-parent-app.png`, caption: 'Parent App', href: '#parent-app' },
 ] as const
 
 const AUTH = `${DS_IMG}/auth`
 const ST = `${DS_IMG}/students`
 const ADM = `${DS_IMG}/admissions`
+const FE = `${DS_IMG}/fees`
+
+export const feesGalleries = [
+  {
+    title: 'Fee Heads',
+    note: 'Reusable fee categories — mandatory, online payment, carry as arrears, applicability (all / new admission)',
+    images: [
+      { src: `${FE}/fee-heads-list.png`, caption: 'Fee Heads — reusable across years' },
+      { src: `${FE}/fee-head-add.png`, caption: 'Add Fee Head — online lock & arrears flags' },
+      { src: `${FE}/fee-heads-access.png`, caption: 'Fee Heads — claim permissions' },
+    ],
+  },
+  {
+    title: 'Fee Structures',
+    note: 'Year + standard + category blueprint — items, installments, gateway accounts, retro edit after assignment',
+    images: [
+      { src: `${FE}/fee-structures-list.png`, caption: 'Fee Structures — by standard & year' },
+      { src: `${FE}/fee-structure-create.png`, caption: 'Create Structure — heads, amounts, installments' },
+      { src: `${FE}/fee-structure-payment-account.png`, caption: 'Payment Account — CCAvenue / Easebuzz' },
+      { src: `${FE}/fee-structure-edit-limited.png`, caption: 'Edit Structure (limited) after assignment' },
+      { src: `${FE}/fee-structure-retro-edit.png`, caption: 'Retroactive Edit — add head with audit reason' },
+      { src: `${FE}/fee-structures-access.png`, caption: 'Fee Structures — claim permissions' },
+    ],
+  },
+  {
+    title: 'Student Ledger — the collections cockpit',
+    note:
+      'Flagship fee operations screen: filter by class, see total / paid / remaining / arrears in ₹, open any student for a true ledger — not a spreadsheet export.',
+    images: [
+      {
+        src: `${FE}/student-ledger-list.png`,
+        caption: 'Student Ledger — class filters, due totals, WhatsApp day stats',
+      },
+      {
+        src: `${FE}/student-fee-ledger-detail.png`,
+        caption: 'Student Fee Ledger — heads, balances, overdue, Collect payment',
+      },
+      {
+        src: `${FE}/fee-head-breakdown.png`,
+        caption: 'Fee head breakdown — planned vs after override vs paid',
+      },
+      {
+        src: `${FE}/transaction-history.png`,
+        caption: 'Transaction history — receipts, heads, UPI / online methods',
+      },
+      {
+        src: `${FE}/student-ledger-access.png`,
+        caption: 'Student Ledger — claim permissions (collect, WhatsApp, links)',
+      },
+    ],
+  },
+  {
+    title: 'Collect payment at the counter',
+    note:
+      'Record cash, UPI, or split modes against one head or many heads on a single receipt — with payment date that can differ from “today”.',
+    images: [
+      {
+        src: `${FE}/collect-payment-one-head.png`,
+        caption: 'Collect Payment — one fee head + payment modes',
+      },
+      {
+        src: `${FE}/collect-payment-multi-head.png`,
+        caption: 'Collect Payment — multiple fee heads, one receipt',
+      },
+    ],
+  },
+  {
+    title: 'WhatsApp from the ledger — one student',
+    note:
+      'Side-by-side chat and fee context: payment links, arrear / installment / minimum reminders, AutoPay setup, and logged follow-ups — so collections never leave the ERP.',
+    images: [
+      {
+        src: `${FE}/student-ledger-whatsapp.png`,
+        caption: 'Ledger + WhatsApp thread with live payment link',
+      },
+      {
+        src: `${FE}/ledger-fee-heads-chat.png`,
+        caption: 'Fee heads panel beside the WhatsApp conversation',
+      },
+      {
+        src: `${FE}/ledger-log-follow-up.png`,
+        caption: 'Log follow-up — WhatsApp / call outcomes & next date',
+      },
+      {
+        src: `${FE}/send-whatsapp-menu.png`,
+        caption: 'Send WhatsApp — choose payment link, arrears, installment, AutoPay',
+      },
+      {
+        src: `${FE}/send-payment-link.png`,
+        caption: 'Send Payment Link — online heads only (counter-only excluded)',
+      },
+      {
+        src: `${FE}/min-amount-reminder.png`,
+        caption: 'Minimum Amount Reminder — monthly minimum + pay link',
+      },
+      {
+        src: `${FE}/fee-installment-due.png`,
+        caption: 'Fee Installment Due — overdue installment + urgency note',
+      },
+      {
+        src: `${FE}/autopay-setup-guide.png`,
+        caption: 'Auto Pay Setup Guide — parent e-mandate invite',
+      },
+    ],
+  },
+  {
+    title: 'Bulk WhatsApp campaigns from the ledger',
+    note:
+      'Same templates at scale: respect ledger filters, show eligible counts, skip no-phone / active AutoPay, and enforce cooldowns (e.g. arrears every 10 days).',
+    images: [
+      {
+        src: `${FE}/bulk-whatsapp-menu.png`,
+        caption: 'Bulk WhatsApp — collect fees, arrears, Auto Pay campaigns',
+      },
+      {
+        src: `${FE}/bulk-send-payment-links.png`,
+        caption: 'Bulk Send Payment Links — eligible count from filters',
+      },
+      {
+        src: `${FE}/bulk-min-amount-reminder.png`,
+        caption: 'Bulk Minimum Amount + Payment Reminder — preview rows',
+      },
+      {
+        src: `${FE}/bulk-installment-due.png`,
+        caption: 'Bulk Fee Installment Due — overdue online heads + urgency note',
+      },
+      {
+        src: `${FE}/bulk-arrear-reminders.png`,
+        caption: 'Bulk Arrear Reminders — prior-year dues, 10-day cooldown',
+      },
+      {
+        src: `${FE}/bulk-autopay-setup.png`,
+        caption: 'Bulk Auto Pay Setup Guide — parents without active mandate',
+      },
+    ],
+  },
+  {
+    title: 'Receipts — find, print, download',
+    note:
+      'Lookup by enrolled student (year / class / division) or jump straight to a receipt number / applicant. Payment history with totals, Online badges, and download / print actions — claim-gated.',
+    images: [
+      {
+        src: `${FE}/receipts-list.png`,
+        caption: 'Receipts — student search, payment history, download & print',
+      },
+      {
+        src: `${FE}/receipts-access.png`,
+        caption: 'Receipts — Access Info (Fees.View / Operate + academics filters)',
+      },
+    ],
+  },
+  {
+    title: 'Online Payment Activity',
+    note:
+      'One-time gateway payments and UPI auto-debits in one ops screen: attempts / success / settlement KPIs, unsettled alerts, rich filters, failure reasons, follow-up calls, CSV export — plus Analytics for funnel, failures, volume, and gateway conversion.',
+    images: [
+      {
+        src: `${FE}/online-payment-activity.png`,
+        caption: 'Online Payment Activity — KPIs, settlement, auto-debit & failures',
+      },
+      {
+        src: `${FE}/online-payment-analytics.png`,
+        caption: 'Online Payment Analytics — funnel, conversion, gateway rates',
+      },
+      {
+        src: `${FE}/online-payment-activity-access.png`,
+        caption: 'Online Payment Activity — Fees.View / DoReconcile / FollowUp',
+      },
+    ],
+  },
+  {
+    title: 'AutoPay Activity',
+    note:
+      'Mandate lifecycle in one Fees screen: Mandates, Pre-debit Notifications, Presentments, and Schedulers — plus Mandate Registration Analytics for adoption, at-risk cancelled mandates, and class / account uptake.',
+    images: [
+      {
+        src: `${FE}/autopay-activity-mandates.png`,
+        caption: 'AutoPay Activity — Mandates (authorized, bounced, expired)',
+      },
+      {
+        src: `${FE}/autopay-activity-predebit.png`,
+        caption: 'Pre-debit Notifications — today / overdue / notified status bar',
+      },
+      {
+        src: `${FE}/autopay-activity-presentments.png`,
+        caption: 'Presentments — scheduled debits, success / paused / cancelled',
+      },
+      {
+        src: `${FE}/autopay-mandate-analytics.png`,
+        caption: 'Mandate Registration Analytics — adoption & at-risk students',
+      },
+    ],
+  },
+  {
+    title: 'Reports — read-only fee insights',
+    note:
+      'Year KPIs (expected / collected / outstanding / overdue) plus focused tabs: Collection, Student × Fee Heads, Defaulters, Attendance × Fees, Fee × Att. Bands, Collection Priority (Hot/Warm/Watch), Fee Overrides — export Excel / SMS ready.',
+    images: [
+      {
+        src: `${FE}/reports-collection.png`,
+        caption: 'Collection Report — KPIs, instruments, receipt rows',
+      },
+      {
+        src: `${FE}/reports-student-fee-heads.png`,
+        caption: 'Student × Fee Heads — matrix expected / paid / bal',
+      },
+      {
+        src: `${FE}/reports-defaulters.png`,
+        caption: 'Defaulters — overdue list + Export for SMS',
+      },
+      {
+        src: `${FE}/reports-attendance-fees.png`,
+        caption: 'Attendance × Fees — dues with attendance context',
+      },
+      {
+        src: `${FE}/reports-fee-att-bands.png`,
+        caption: 'Fee × Att. Bands — unpaid grouped by attendance %',
+      },
+      {
+        src: `${FE}/reports-collection-priority.png`,
+        caption: 'Collection Priority — Hot / Warm / Watch follow-up queue',
+      },
+      {
+        src: `${FE}/reports-fee-overrides.png`,
+        caption: 'Fee Overrides — planned vs override with audit reason',
+      },
+    ],
+  },
+  {
+    title: 'Ledger · Gateway · Mandate analytics',
+    note:
+      'Deep analytics beyond tabular Reports: Student Ledger Analytics (collection health, modes, aging), Gateway Analytics (funnel, abandonment, Easebuzz/CCAvenue rates), and Mandate Registration Analytics (adoption overview + by class).',
+    images: [
+      {
+        src: `${FE}/ledger-analytics.png`,
+        caption: 'Student Ledger Analytics — collection rate, modes, overdue aging',
+      },
+      {
+        src: `${FE}/gateway-analytics.png`,
+        caption: 'Gateway Analytics — funnel, abandonment, provider rates',
+      },
+      {
+        src: `${FE}/mandate-analytics-overview.png`,
+        caption: 'Mandate Analytics — adoption, at-risk students & ₹',
+      },
+      {
+        src: `${FE}/mandate-analytics-by-class.png`,
+        caption: 'Mandate Analytics — adoption by standard / class',
+      },
+    ],
+  },
+  {
+    title: 'Fees Follow-up · Promise Tracker · WhatsApp',
+    note:
+      'Collections CRM for accountants: Today’s Briefing, My Day call queues, All Pending, Promise Tracker (due / broken / upcoming / completed), Collection Calendar, and Communication History — with WhatsApp send, reply/unread filters, and promise payment links from every row.',
+    images: [
+      {
+        src: `${FE}/followup-todays-briefing.png`,
+        caption: "Today's Briefing — calls, promises, recovery KPIs",
+      },
+      {
+        src: `${FE}/followup-my-day.png`,
+        caption: 'My Day — today’s calls with WhatsApp / call actions',
+      },
+      {
+        src: `${FE}/followup-all-pending.png`,
+        caption: 'All Pending — critical queue, outcomes, WhatsApp',
+      },
+      {
+        src: `${FE}/promise-tracker-due-today.png`,
+        caption: 'Promise Tracker — Due Today + WhatsApp filters',
+      },
+      {
+        src: `${FE}/promise-tracker-broken.png`,
+        caption: 'Promise Tracker — Broken promises follow-up',
+      },
+      {
+        src: `${FE}/promise-tracker-upcoming.png`,
+        caption: 'Promise Tracker — Upcoming commitments',
+      },
+      {
+        src: `${FE}/promise-tracker-completed.png`,
+        caption: 'Promise Tracker — Completed promises',
+      },
+      {
+        src: `${FE}/followup-collection-calendar.png`,
+        caption: 'Collection Calendar — reminders & promises',
+      },
+      {
+        src: `${FE}/followup-communication-history.png`,
+        caption: 'Communication History — calls, promises, pay links',
+      },
+    ],
+  },
+] as const
+
+const WA = `${DS_IMG}/whatsapp`
+
+export const whatsappGalleries = [
+  {
+    title: 'WhatsApp Trends & Reports',
+    note:
+      'Phase 1 Trends: template delivery funnel, daily volume, standard-wise read rate, per-template report, and message drill-down. Phase 2 Insights: best send hours, weekday engagement, failure reasons, and actionable recommendations.',
+    images: [
+      {
+        src: `${WA}/whatsapp-trends-phase1.png`,
+        caption: 'WhatsApp Trends — Phase 1 delivery / read funnel',
+      },
+      {
+        src: `${WA}/whatsapp-trends-phase2.png`,
+        caption: 'WhatsApp Insights — best hours, failures, recommendations',
+      },
+    ],
+  },
+] as const
 
 export const admissionsGalleries = [
   {
@@ -204,9 +519,9 @@ export const dailyOpsMosaic = [
 
 export const moduleIndex = [
   { title: 'Admissions & Meta Leads', summary: 'Inquiry CRM, Meta Instant Forms, walk-ins, enrollment.', href: '/products/digital-school/admissions', tags: ['admissions', 'meta', 'crm'] },
-  { title: 'Fees & Accounting', summary: 'Structures, RTE categories, ledgers, receipts, reports.', href: '/products/digital-school/fees', tags: ['fees', 'ledger', 'rte'] },
-  { title: 'Online Payments & AutoPay', summary: 'CCAvenue, Easebuzz, UPI, AutoPay, eNACH, payment links.', href: '/products/digital-school/payments', tags: ['payments', 'autopay', 'upi'] },
-  { title: 'WhatsApp Business', summary: 'Templates, inbox, receipts, delivery analytics.', href: '/products/digital-school/whatsapp', tags: ['whatsapp', 'meta'] },
+  { title: 'Fees & Accounting', summary: 'Ledger, follow-up/promise tracker with WhatsApp, reports, AutoPay.', href: '/products/digital-school/fees', tags: ['fees', 'follow-up', 'whatsapp'] },
+  { title: 'Online Payments & AutoPay', summary: 'Gateway activity, AutoPay mandates, settlement, analytics.', href: '/products/digital-school/payments', tags: ['payments', 'autopay', 'easebuzz'] },
+  { title: 'WhatsApp Business', summary: 'Templates, inbox, Trends & Insights (Phase 1 + 2).', href: '/products/digital-school/whatsapp', tags: ['whatsapp', 'meta'] },
   { title: 'Parent Mobile App', summary: 'Multi-child, fees, homework, notices, School Connect.', href: '/products/digital-school/parent-app', tags: ['parent', 'android', 'app'] },
   { title: 'Attendance', summary: 'Session attendance with draft, submit, and lock.', href: '/products/digital-school/attendance', tags: ['attendance', 'ops'] },
   { title: 'Academics & Daily Ops', summary: 'Homework, diary, exams, timetable, gallery, leave.', href: '/products/digital-school/academics', tags: ['academics', 'ops'] },
@@ -383,72 +698,213 @@ export const deepPages: Record<string, DeepPageContent> = {
   fees: {
     slug: 'fees',
     title: 'Fees & Accounting',
-    eyebrow: 'Fees',
-    headline: 'Fees as a real ledger — not a spreadsheet.',
-    sub: 'Fee heads, structures, RTE categories, student obligation vs payment, installments, and immutable receipts.',
+    eyebrow: 'Fees · Ledger · Follow-up · Reports',
+    headline: 'From fee blueprint to WhatsApp pay link — one Student Ledger.',
+    sub: 'Setup defines heads and structures. The Student Ledger is where accountants live daily. Fees Follow-up & Promise Tracker turn outstanding balances into a staff CRM — My Day queues, broken promises, Collection Calendar — with WhatsApp messaging and payment links on every row.',
     images: [
-      { src: `${DS_IMG}/fees-ledger.png`, caption: 'Student ledger — total / paid / remaining' },
-      { src: `${DS_IMG}/fees-reports.png`, caption: 'Outstanding, collection, and overdue reports (₹)' },
+      { src: `${FE}/followup-todays-briefing.png`, caption: "Today's Briefing — calls, promises, recovery" },
+      { src: `${FE}/followup-my-day.png`, caption: 'My Day — WhatsApp & call actions' },
+      { src: `${FE}/promise-tracker-broken.png`, caption: 'Promise Tracker — broken promises' },
+      { src: `${FE}/ledger-analytics.png`, caption: 'Ledger Analytics — collection health' },
+      { src: `${FE}/reports-collection.png`, caption: 'Reports — expected, collected, overdue KPIs' },
     ],
+    galleries: feesGalleries.map((g) => ({
+      title: g.title,
+      note: g.note,
+      images: g.images.map((img) => ({ src: img.src, caption: img.caption })),
+    })),
     checklist: [
-      'Fee heads & structures by academic year + class + division + student category',
-      'RTE / Scholarship / Staff Ward / School Adopted eligibility',
-      'Fee assignment workspace',
-      'Student ledger: obligation ≠ payment',
-      'Installments, discounts, fines, arrears',
-      'Counter payments + immutable sequential PDF receipts',
-      'Correction queue / overrides with audit',
-      'Outstanding / collection / overdue fee reports',
+      'Fee heads & structures (year + standard + category, RTE / Regular)',
+      'Student Ledger: this-year total / paid / remaining + prior-year arrears',
+      'Counter collection + Receipts + Online / AutoPay activity',
+      "Fees Follow-up: Today's Briefing, My Day, All Pending critical queue",
+      'Promise Tracker: Due Today / Broken / Upcoming / Completed',
+      'WhatsApp from the row — filters for parent replied & unread',
+      'Promise payment links logged in Communication History',
+      'Collection Calendar — reminders & promises at a glance',
+      'Reports + Ledger / Gateway / Mandate analytics',
+      'Bulk WhatsApp campaigns with eligible counts & cooldowns',
     ],
     faq: [
-      { q: 'Can we keep admission fees separate from tuition?', a: 'Yes. Admission fee tracking is modeled separately from the tuition ledger.' },
-      { q: 'Are receipt numbers sequential and immutable?', a: 'Counter receipts are sequential PDFs designed for audit-friendly collections.' },
+      {
+        q: 'What makes Student Ledger different from Excel?',
+        a: 'Each student has a live obligation vs payment ledger — heads, overrides, arrears, receipts, and WhatsApp pay links in one place. Filters and bulk sends work on the same numbers the accountant sees.',
+      },
+      {
+        q: 'What is Fees Follow-up / Promise Tracker?',
+        a: "Today's Briefing shows calls, promises, broken promises, and recovery. My Day and All Pending are staff queues with WhatsApp, call, and note actions. Promise Tracker tracks Due Today / Broken / Upcoming / Completed with WhatsApp filters (parent replied, unread). Collection Calendar and Communication History keep the audit trail — including promise payment links sent on WhatsApp.",
+      },
+      {
+        q: 'How do we reprint an old receipt?',
+        a: 'Open Receipts, search by enrolled student (year / class / division) or paste a receipt number / applicant. Download or print from the payment history — Online vs counter payments are badged clearly.',
+      },
+      {
+        q: 'Where do we see failed online payments and bank settlement?',
+        a: 'Online Payment Activity lists every gateway attempt (one-time and UPI auto-debit) with collection status, settlement, gateway error text, and follow-up calls. Analytics shows funnel conversion and gateway rates; Refresh settlement data pulls Easebuzz payout status.',
+      },
+      {
+        q: 'How do we monitor UPI AutoPay mandates?',
+        a: 'AutoPay Activity covers the full lifecycle — Mandates, Pre-debit Notifications, Presentments, and Schedulers. Mandate Registration Analytics shows adoption vs fee-due students, failed registrations, and at-risk ₹ when parents cancel but still owe.',
+      },
+      {
+        q: 'What fee reports are included?',
+        a: 'Reports opens with year KPIs (expected / collected / outstanding / overdue), then tabs for Collection (by instrument), Student × Fee Heads matrix, Defaulters (SMS export), Attendance × Fees, Fee × attendance bands, Collection Priority (Hot/Warm/Watch/Low), and Fee Overrides with who/when/reason.',
+      },
+      {
+        q: 'What is Ledger / Gateway / Mandate analytics?',
+        a: 'Student Ledger Analytics shows collection health, mode mix, and overdue aging. Gateway Analytics (from Online Payment Activity) shows intent→checkout funnel, abandonment, and Easebuzz/CCAvenue rates. Mandate Registration Analytics covers Autopay adoption, at-risk cancelled mandates, and uptake by class.',
+      },
+      {
+        q: 'Can we message a whole class about fees?',
+        a: 'Yes. Bulk WhatsApp from the ledger uses your current filters (year, standard, pending only, etc.), shows eligible counts, and supports payment links, installment dues, minimum amount, arrears, and AutoPay setup campaigns. Follow-up / Promise Tracker adds per-case WhatsApp with reply and unread filters.',
+      },
+      {
+        q: 'Do all fee heads go on the online payment link?',
+        a: 'No. Only heads marked for online payment are included. Counter-only heads are called out so parents are not asked to pay them online.',
+      },
+      {
+        q: 'Can we change amounts after students are assigned?',
+        a: 'Money fields lock after assignment for safety. Use Retro Edit (with an audit reason) on the structure; the ledger reflects controlled changes. Fee Overrides report shows every reduction with staff and reason.',
+      },
     ],
   },
   payments: {
     slug: 'payments',
     title: 'Online Payments & AutoPay',
-    eyebrow: 'Payments',
+    eyebrow: 'Payments · Gateway ops',
     headline: 'Smart & secure payment integration.',
-    sub: 'Multiple gateways. One seamless experience — UPI, cards, netbanking, wallets, AutoPay, and eNACH.',
-    images: [{ src: `${DS_IMG}/payments-gateways.png`, caption: 'CCAvenue · Easebuzz · UPI AutoPay · eNACH' }],
+    sub: 'CCAvenue and Easebuzz for checkout. Online Payment Activity for gateway ops. AutoPay Activity for the full mandate lifecycle — plus Mandate Registration Analytics (overview and by class) and Gateway Analytics for funnel conversion.',
+    images: [
+      { src: `${FE}/online-payment-activity.png`, caption: 'Online Payment Activity — KPIs & settlement' },
+      { src: `${FE}/gateway-analytics.png`, caption: 'Gateway Analytics — funnel & provider rates' },
+      { src: `${FE}/autopay-activity-mandates.png`, caption: 'AutoPay Activity — Mandates' },
+      { src: `${FE}/mandate-analytics-overview.png`, caption: 'Mandate Analytics — adoption & at-risk' },
+      { src: `${FE}/mandate-analytics-by-class.png`, caption: 'Mandate Analytics — by class' },
+    ],
+    galleries: [
+      {
+        title: 'Online Payment Activity (Fees menu)',
+        note:
+          'Staff ops cockpit for one-time payments and UPI auto-debits — collection status and bank settlement in one place, with Gateway Analytics for drop-off and provider rates.',
+        images: [
+          {
+            src: `${FE}/online-payment-activity.png`,
+            caption: 'Activity — attempts, success, pending settlement, failures',
+          },
+          {
+            src: `${FE}/gateway-analytics.png`,
+            caption: 'Gateway Analytics — funnel, abandonment, Easebuzz / CCAvenue',
+          },
+          {
+            src: `${FE}/online-payment-analytics.png`,
+            caption: 'Online Payment Analytics — conversion & one-time vs AutoPay',
+          },
+          {
+            src: `${FE}/online-payment-activity-access.png`,
+            caption: 'Access — Fees.View, DoReconcile, FeeCollection.FollowUp',
+          },
+        ],
+      },
+      {
+        title: 'AutoPay Activity (Fees menu)',
+        note:
+          'Mandate lifecycle, pre-debit notifications, presentments, and schedulers — plus Mandate Registration Analytics (overview and by class).',
+        images: [
+          {
+            src: `${FE}/autopay-activity-mandates.png`,
+            caption: 'Mandates — authorized, bounced, expired, cancelled',
+          },
+          {
+            src: `${FE}/autopay-activity-predebit.png`,
+            caption: 'Pre-debit Notifications — schedule window & notify status',
+          },
+          {
+            src: `${FE}/autopay-activity-presentments.png`,
+            caption: 'Presentments — planned debits through success / failed',
+          },
+          {
+            src: `${FE}/mandate-analytics-overview.png`,
+            caption: 'Mandate Analytics — adoption, cancelled, at-risk ₹',
+          },
+          {
+            src: `${FE}/mandate-analytics-by-class.png`,
+            caption: 'Mandate Analytics — active mandates by standard',
+          },
+        ],
+      },
+    ],
     checklist: [
       'Gateways: CCAvenue + Easebuzz',
       'UPI · Cards · NetBanking · Wallets',
       'UPI AutoPay / e-mandate for parents',
-      'Admin AutoPay / mandate monitoring',
+      'AutoPay Activity: Mandates, Pre-debit, Presentments, Schedulers',
+      'Mandate Analytics: overview + by class / at-risk dues',
+      'Online Payment Activity: KPIs, filters, failure reasons, CSV export',
+      'Gateway Analytics: funnel, abandonment, provider conversion',
+      'Settlement refresh + unsettled alerts (Easebuzz payout)',
+      'Follow-up calls from bounced / failed payments',
       'Online payment links (including WhatsApp)',
-      'Bulk payment links & gateway activity',
       'Gateway-compliant checkout via trusted Indian PGs',
-      'Correction queue for payment exceptions',
     ],
     faq: [
-      { q: 'Do you store card data on Arvion servers?', a: 'Checkout runs through CCAvenue / Easebuzz — gateway-compliant flows. We track payment activity and mandates in the ERP.' },
-      { q: 'Can parents set AutoPay?', a: 'Yes. Parents set up UPI e-mandate; admins monitor mandates and arrears nudges.' },
+      {
+        q: 'Do you store card data on Arvion servers?',
+        a: 'Checkout runs through CCAvenue / Easebuzz — gateway-compliant flows. We track payment activity, settlement, and mandates in the ERP.',
+      },
+      {
+        q: 'What is Online Payment Activity?',
+        a: 'Under Fees, it is the ops screen for every online attempt — one-time and auto-debit — with success/failure, pending settlement, gateway error detail, and call follow-ups. Gateway Analytics adds conversion funnel and provider rates.',
+      },
+      {
+        q: 'What is AutoPay Activity?',
+        a: 'The mandate ops cockpit: Mandates, Pre-debit Notifications, Presentments, and Schedulers — with Mandate Registration Analytics for adoption, failed registrations, by-class uptake, and at-risk students who cancelled but still owe fees.',
+      },
+      {
+        q: 'Can parents set AutoPay?',
+        a: 'Yes. Parents set up UPI e-mandate; AutoPay Activity tracks the mandate and presentments, while successful auto-debits also appear in Online Payment Activity.',
+      },
     ],
   },
   whatsapp: {
     slug: 'whatsapp',
     title: 'WhatsApp Business',
-    eyebrow: 'WhatsApp',
+    eyebrow: 'WhatsApp · Trends & Insights',
     headline: 'Seamless Meta + WhatsApp for Digital School.',
-    sub: 'Connect. Communicate. Engage — templates, inbox, receipts, and analytics inside the ERP.',
+    sub: 'Connect. Communicate. Engage — templates, inbox, receipts, and WhatsApp Trends & Reports inside the ERP. Phase 1 shows delivery funnels; Phase 2 adds smart diagnostics and send-time recommendations.',
     images: [
+      { src: `${WA}/whatsapp-trends-phase1.png`, caption: 'WhatsApp Trends — delivery / read funnel' },
+      { src: `${WA}/whatsapp-trends-phase2.png`, caption: 'WhatsApp Insights — hours, failures, recommendations' },
       { src: `${DS_IMG}/whatsapp-integration.png`, caption: 'WhatsApp Business integration with Digital School' },
-      { src: `${DS_IMG}/whatsapp-analytics.png`, caption: 'Delivery, read rate, failures — standard-wise analytics' },
     ],
+    galleries: whatsappGalleries.map((g) => ({
+      title: g.title,
+      note: g.note,
+      images: g.images.map((img) => ({ src: img.src, caption: img.caption })),
+    })),
     checklist: [
       'Fee reminder templates with payment links',
       'Two-way staff ↔ parent inbox inside the ERP',
       'Receipt text/PDF within the 24-hour window',
       'Delivery and read status',
-      'WhatsApp analytics (delivery, read, failures)',
+      'Fees Follow-up / Promise Tracker — WhatsApp from My Day & queues',
+      'WhatsApp Trends (Phase 1): daily volume, standard-wise read %, template report',
+      'WhatsApp Insights (Phase 2): best hours, weekday engagement, failure reasons',
+      'Actionable recommendations (critical / warning / info)',
+      'Message drill-down with student, class, parent mobile',
       'Arrear / AutoPay / app-update template nudges',
       'Admission acknowledgment templates',
     ],
     faq: [
       { q: 'Is this personal WhatsApp?', a: 'No — Business API templates and inbox designed for school operations.' },
       { q: 'Can we send fee receipts on WhatsApp?', a: 'Yes, within the 24-hour messaging window (text/PDF).' },
+      {
+        q: 'What is WhatsApp Trends & Reports?',
+        a: 'Phase 1 Trends shows templates sent, unique parents, delivery/read/failure rates, daily charts, standard-wise read rate, per-template funnel, and message drill-down. Phase 2 Insights adds best send hours, weekday engagement, top failure reasons, and auto recommendations.',
+      },
+      {
+        q: 'How does Fees Follow-up use WhatsApp?',
+        a: 'My Day, All Pending, and Promise Tracker put WhatsApp on every row — with filters for parent replied and unread. Communication History logs outcomes and promise payment links sent on WhatsApp.',
+      },
     ],
   },
   'parent-app': {

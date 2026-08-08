@@ -38,31 +38,30 @@ const admissionsChecklist = [
 ]
 
 const feesChecklist = [
-  'Fee heads & structures (year + class + division + category)',
-  'RTE / Scholarship / Staff Ward / School Adopted rules',
-  'Fee assignment workspace',
-  'Student ledger (total / paid / remaining)',
-  'Installments, discounts, fines, arrears',
-  'Immutable receipts + PDF',
-  'Correction queue / overrides with audit',
-  'Outstanding / collection / overdue reports (₹)',
+  'Student Ledger — total / paid / remaining / arrears in ₹',
+  "Follow-up CRM — Today's Briefing, My Day, All Pending",
+  'Promise Tracker — due / broken / upcoming + WhatsApp',
+  'Collection Calendar & communication history',
+  'Reports + Ledger / Gateway / Mandate analytics',
+  'Bulk WhatsApp campaigns with eligible counts',
+  'Fee heads & structures that feed the ledger',
 ]
 
 const paymentsChecklist = [
   'CCAvenue + Easebuzz gateways',
   'UPI · Cards · NetBanking · Wallets',
   'UPI AutoPay & eNACH',
-  'Payment links via WhatsApp',
-  'Online Payment Activity + AutoPay monitoring',
-  'Gateway-compliant checkout via trusted Indian PGs',
+  'Online Payment Activity — settlement & failures',
+  'Gateway Analytics — funnel & provider rates',
+  'Mandate Analytics — adoption & by class',
 ]
 
 const whatsappChecklist = [
   'Fee reminder templates with pay link',
   'Two-way inbox inside ERP',
   'Receipts (text/PDF) in 24-hour window',
-  'Delivery / read status',
-  'WhatsApp analytics (delivery, read rate, failures)',
+  'WhatsApp Trends — delivery / read funnel',
+  'WhatsApp Insights — best hours & recommendations',
   'Automated alerts: admissions, fees, arrears',
 ]
 
@@ -297,23 +296,24 @@ const adminChecklist = [
         <div class="grid items-start gap-12 lg:grid-cols-2">
           <div class="order-2 space-y-5 lg:order-1">
             <MarketingImage
-              :src="`${DS_IMG}/fees-ledger.png`"
-              alt="Fee ledger"
-              caption="Student ledger — obligation vs payment"
+              :src="`${DS_IMG}/fees/student-ledger-list.png`"
+              alt="Student ledger"
+              caption="Student Ledger — class dues, arrears, WhatsApp day stats"
             />
             <MarketingImage
-              :src="`${DS_IMG}/fees-reports.png`"
-              alt="Fee reports"
-              caption="Collection & overdue reports in ₹"
+              :src="`${DS_IMG}/fees/followup-todays-briefing.png`"
+              alt="Fees follow-up briefing"
+              caption="Today's Briefing — calls, promises, recovery KPIs"
             />
           </div>
           <div class="order-1 lg:order-2">
-            <p class="section-label">Fees & Accounting</p>
+            <p class="section-label">Fees & Accounting · Student Ledger</p>
             <h2 class="mt-3 font-display text-3xl font-bold tracking-tight">
-              Fees as a real ledger — not a spreadsheet.
+              From fee blueprint to WhatsApp pay link — one ledger.
             </h2>
             <p class="mt-4 text-ink-500">
-              Structures by year, class, division, and category. RTE rules that accountants trust.
+              Accountants filter by class, open a student, collect at the counter, and send payment links
+              without leaving Digital School. Bulk WhatsApp campaigns use the same filters and balances.
             </p>
             <div class="mt-8">
               <FeatureChecklist :items="feesChecklist" />
@@ -323,6 +323,78 @@ const adminChecklist = [
               <ArrowRight class="h-4 w-4" />
             </RouterLink>
           </div>
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-brand-100 bg-brand-50/50 px-5 py-4 sm:px-6">
+          <p class="text-sm font-semibold text-brand-800">
+            Flagship: Student Ledger + Follow-up / Promise Tracker with WhatsApp
+          </p>
+          <p class="mt-1 text-sm text-ink-600">
+            Setup feeds the ledger. My Day queues, broken promises, and pay links keep collections moving.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <MarketingImage
+            :src="`${DS_IMG}/fees/student-fee-ledger-detail.png`"
+            alt="Student fee ledger detail"
+            caption="Student Fee Ledger — heads & Collect payment"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/collect-payment-multi-head.png`"
+            alt="Collect payment"
+            caption="Collect Payment — multi-head receipt"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/transaction-history.png`"
+            alt="Transaction history"
+            caption="Transaction history — receipts & methods"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/receipts-list.png`"
+            alt="Fee receipts"
+            caption="Receipts — payment history, download & print"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/send-payment-link.png`"
+            alt="Send payment link"
+            caption="Send Payment Link via WhatsApp"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/bulk-whatsapp-menu.png`"
+            alt="Bulk WhatsApp"
+            caption="Bulk WhatsApp — fees, arrears, AutoPay"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/reports-collection.png`"
+            alt="Fee reports collection"
+            caption="Reports — expected, collected, overdue KPIs"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/followup-todays-briefing.png`"
+            alt="Fees follow-up today's briefing"
+            caption="Today's Briefing — calls, promises, recovery"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/followup-my-day.png`"
+            alt="Fees follow-up my day"
+            caption="My Day — WhatsApp & call follow-up queue"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/promise-tracker-broken.png`"
+            alt="Promise tracker broken"
+            caption="Promise Tracker — broken promises + WhatsApp"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/ledger-analytics.png`"
+            alt="Student ledger analytics"
+            caption="Ledger Analytics — collection health & aging"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/fee-structures-list.png`"
+            alt="Fee structures"
+            caption="Fee Structures — setup that feeds the ledger"
+          />
         </div>
       </div>
     </section>
@@ -374,9 +446,26 @@ const adminChecklist = [
             </RouterLink>
           </div>
           <MarketingImage
-            :src="`${DS_IMG}/payments-gateways.png`"
-            alt="Payment gateways"
-            caption="CCAvenue · Easebuzz · UPI AutoPay · eNACH"
+            :src="`${DS_IMG}/fees/online-payment-activity.png`"
+            alt="Online payment activity"
+            caption="Online Payment Activity — one-time + auto-debit, settlement"
+          />
+        </div>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <MarketingImage
+            :src="`${DS_IMG}/fees/gateway-analytics.png`"
+            alt="Gateway analytics"
+            caption="Gateway Analytics — funnel & provider rates"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/mandate-analytics-overview.png`"
+            alt="Mandate registration analytics"
+            caption="Mandate Analytics — adoption & at-risk ₹"
+          />
+          <MarketingImage
+            :src="`${DS_IMG}/fees/mandate-analytics-by-class.png`"
+            alt="Mandate analytics by class"
+            caption="Mandate Analytics — adoption by standard"
           />
         </div>
         <div class="mt-10">
@@ -391,14 +480,14 @@ const adminChecklist = [
         <div class="grid items-start gap-12 lg:grid-cols-2">
           <div class="order-2 space-y-5 lg:order-1">
             <MarketingImage
-              :src="`${DS_IMG}/whatsapp-integration.png`"
-              alt="WhatsApp integration"
-              caption="Seamless Meta + WhatsApp for Digital School"
+              :src="`${DS_IMG}/whatsapp/whatsapp-trends-phase1.png`"
+              alt="WhatsApp trends phase 1"
+              caption="WhatsApp Trends — delivery / read funnel"
             />
             <MarketingImage
-              :src="`${DS_IMG}/whatsapp-analytics.png`"
-              alt="WhatsApp analytics"
-              caption="Delivery, read rate, failures — standard-wise"
+              :src="`${DS_IMG}/whatsapp/whatsapp-trends-phase2.png`"
+              alt="WhatsApp insights phase 2"
+              caption="WhatsApp Insights — best hours & recommendations"
             />
           </div>
           <div class="order-1 lg:order-2">

@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Arvion">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" role="img" aria-label="Arvion">
   <title>Arvion</title>
   <defs>
-    <linearGradient id="arvionGrad" x1="12" y1="64" x2="116" y2="64" gradientUnits="userSpaceOnUse">
+    <linearGradient id="arvionGrad" x1="14" y1="18" x2="114" y2="110" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#9B3CFF"/>
-      <stop offset="55%" stop-color="#4A5AFF"/>
+      <stop offset="52%" stop-color="#4A5AFF"/>
       <stop offset="100%" stop-color="#1AC6FF"/>
     </linearGradient>
   </defs>
-  <!-- Right leg first so left overlaps at apex -->
-  <path d="M64 20 L98 112" fill="none" stroke="url(#arvionGrad)" stroke-width="26" stroke-linecap="round"/>
-  <path d="M30 112 L64 20" fill="none" stroke="url(#arvionGrad)" stroke-width="26" stroke-linecap="round"/>
+  <!-- Same mark as homepage PNG: rounded A legs + center dot -->
+  <path d="M64 20 L98 112" stroke="url(#arvionGrad)" stroke-width="26" stroke-linecap="round" opacity="0.9"/>
+  <path d="M30 112 L64 20" stroke="url(#arvionGrad)" stroke-width="26" stroke-linecap="round"/>
   <circle cx="64" cy="78" r="13.5" fill="url(#arvionGrad)"/>
 </svg>

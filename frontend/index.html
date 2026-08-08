@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="apple-touch-icon" href="/brand/arvion-icon-badge.svg?v=3" />
+    <meta name="theme-color" content="#4630C0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -15,8 +17,79 @@
     />
     <meta property="og:type" content="website" />
     <title>Arvion — Digital School</title>
+    <style>
+      /* Instant first paint — matches AppLoader (logo + ring) */
+      #arvion-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f7;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+      }
+      #arvion-splash.is-done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #arvion-splash .mark {
+        position: relative;
+        width: 92px;
+        height: 92px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #arvion-splash .ring {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        animation: arvion-splash-spin 0.85s linear infinite;
+      }
+      #arvion-splash .track {
+        fill: none;
+        stroke: rgba(91, 60, 196, 0.12);
+        stroke-width: 2.5;
+      }
+      #arvion-splash .arc {
+        fill: none;
+        stroke: #5b3cc4;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 70 156;
+      }
+      #arvion-splash .logo {
+        position: relative;
+        z-index: 1;
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+      @keyframes arvion-splash-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #arvion-splash .ring {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="arvion-splash" aria-busy="true" aria-label="Loading Arvion">
+      <div class="mark">
+        <svg class="ring" viewBox="0 0 80 80" aria-hidden="true">
+          <circle class="track" cx="40" cy="40" r="36" />
+          <circle class="arc" cx="40" cy="40" r="36" />
+        </svg>
+        <img class="logo" src="/brand/arvion-logo.png" width="48" height="48" alt="" />
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

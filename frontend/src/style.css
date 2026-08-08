@@ -80,6 +80,46 @@
     @apply mb-1.5 block text-sm font-medium text-ink-700;
   }
 
+  /* Splash / loader — Arvion mark + spinning ring */
+  .arvion-loader--fullscreen {
+    @apply fixed inset-0 z-[100] flex items-center justify-center bg-[#f3f4f7];
+  }
+
+  .arvion-loader--inline {
+    @apply flex items-center justify-center py-16;
+  }
+
+  .arvion-loader__mark {
+    @apply relative flex items-center justify-center;
+  }
+
+  .arvion-loader__ring {
+    @apply absolute inset-0 h-full w-full;
+    animation: arvion-spin 0.85s linear infinite;
+  }
+
+  .arvion-loader__track {
+    stroke: rgb(91 60 196 / 0.12);
+    stroke-width: 2.5;
+  }
+
+  .arvion-loader__arc {
+    stroke: #5b3cc4;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 70 156;
+  }
+
+  .arvion-loader__logo {
+    @apply relative z-[1] select-none object-contain;
+  }
+
+  @keyframes arvion-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .glass-panel {
     @apply border border-white/60 bg-white/70 shadow-glass backdrop-blur-xl;
   }
@@ -117,6 +157,10 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       @apply translate-y-0 opacity-100 transition-none;
+    }
+
+    .arvion-loader__ring {
+      animation: none;
     }
   }
 }

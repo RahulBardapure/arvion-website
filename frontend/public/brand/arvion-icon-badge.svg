@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Arvion">
+  <title>Arvion</title>
+  <rect width="64" height="64" rx="16" fill="#4630C0"/>
+  <path d="M32 14.5 L47.2 50" stroke="#FFFFFF" stroke-width="10.8" stroke-linecap="round"/>
+  <path d="M16.8 50 L32 14.5" stroke="#FFFFFF" stroke-width="10.8" stroke-linecap="round"/>
+  <circle cx="32" cy="38.8" r="5.3" fill="#5BC8E8"/>
+</svg>
